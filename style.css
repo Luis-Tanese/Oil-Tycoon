@@ -3,7 +3,10 @@ body {
     flex-direction: column;
     align-items: center;
     font-family: "Oswald", sans-serif;
-    background-color: antiquewhite;
+    background-color: #121212;
+    color: #e0e0e0;
+    margin: 0;
+    height: 100vh;
 }
 
 #game-container {
@@ -11,38 +14,67 @@ body {
     text-align: center;
     max-width: 400px;
     padding: 20px;
-    background-color: rgb(245, 218, 182);
+    background-color: #1e1e1e;
     border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+h1 {
+    font-size: 2em;
+    color: #ffab40;
+    text-shadow: 1px 1px 5px rgba(255, 171, 64, 0.5);
 }
 
 button {
     margin: 10px;
-    padding: 10px 20px;
-    font-size: 18px;
+    padding: 12px 24px;
+    font-size: 1em;
     border: none;
     cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s, box-shadow 0.2s ease;
+}
+
+button:active {
+    transform: scale(0.98);
 }
 
 .btn-primary {
-    background-color: #1f73e8;
+    background: linear-gradient(145deg, #ff5722, #ff784e);
     color: white;
+    box-shadow: 0px 4px 10px rgba(255, 87, 34, 0.3);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(145deg, #ff784e, #ff5722);
+    box-shadow: 0px 4px 10px rgba(255, 87, 34, 0.3);
 }
 
 .btn-upgrade {
-    background-color: #4caf50;
-    color: white;
+    background: linear-gradient(145deg, #03a9f4, #35baf6);
+    color: #ffffff;
+    box-shadow: 0px 4px 10px rgba(3, 169, 244, 0.3);
 }
 
-.stats {
+.btn-upgrade:hover {
+    background: linear-gradient(145deg, #35baf6, #03a9f4);
+    box-shadow: 0px 6px 14px rgba(3, 169, 244, 0.5);
+}
+
+.stats, .upgrades {
     margin-top: 20px;
+    font-size: 1.1em;
+    color: #b0bec5;
 }
 
-.desktop-1
-{
-position:absolute;
-background-color:#ffffff;
-height:1024px;
-width:1440px;
-padding:0px;
+
+.stats p, .upgrades p {
+    margin: 5px 0;
+}
+
+#oil-count {
+    font-size: 1.5em;
+    color: #ffab40;
+    text-shadow: 0px 0px 8px rgba(255, 171, 64, 0.8);
 }
