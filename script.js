@@ -197,6 +197,10 @@ function hideResetModal() {
     document.getElementById("reset-modal").style.display = "none";
 }
 
+function sendToRepo() {
+    window.location.href = "https://github.com/Luis-Tanese/Oil-Tycoon";
+}
+
 loadGame();
 updateDisplay();
 setupUpgrades();
