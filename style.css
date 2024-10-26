@@ -7,17 +7,21 @@ body {
     color: #e0e0e0;
     margin: 0;
     height: 100vh;
+    overflow: hidden;
 }
 
 #game-container {
-    margin-top: 50px;
-    text-align: center;
-    max-width: 400px;
-    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 700px;
     background-color: #1e1e1e;
+    padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.6);
     border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 50px;
 }
 
 h1 {
@@ -26,55 +30,253 @@ h1 {
     text-shadow: 1px 1px 5px rgba(255, 171, 64, 0.5);
 }
 
+#oil-count {
+    font-size: 1.5em;
+    color: #ffab40;
+    text-shadow: 0px 0px 8px rgba(255, 171, 64, 0.8);
+}
+
+.drill-container {
+    position: relative;
+    width: 150px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    background: none;
+    border: none;
+    overflow: hidden;
+}
+
+.oil-rig {
+    position: relative;
+    width: 80%;
+    height: 100%;
+    background: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.oil-rig-frame {
+    position: absolute;
+    top: 10%;
+    width: 60%;
+    height: 40%;
+    background-color: #6d4c41;
+    border-radius: 2px;
+    border: 2px solid #3e2723;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+.oil-rig-frame::before, .oil-rig-frame::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 3px;
+    height: 100%;
+    background-color: #3e2723;
+}
+
+.oil-rig-frame::before {
+    left: 15%;
+}
+
+.oil-rig-frame::after {
+    right: 15%;
+}
+
+.drill-pipe {
+    position: absolute;
+    bottom: 10px;
+    width: 12px;
+    height: 50%;
+    background: linear-gradient(145deg, #d7ccc8, #a1887f); 
+    border: 2px solid #8d6e63;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3); 
+}
+
+.drill-btn {
+    position: absolute;
+    bottom: 0;
+    width: 50px;
+    height: 50px;
+    background: radial-gradient(circle, #ff5722 30%, #d84315 70%);
+    color: white;
+    border-radius: 50%;
+    border: 3px solid #bf360c;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.drill-btn:hover {
+    background-color: #e64a19;
+    transform: scale(1.1);
+}
+
+.drill-fast {
+    animation: drillAnimationFast 0.2s infinite;
+}
+
+.drill-slow {
+    animation: drillAnimationSlow 1s infinite;
+}
+
+@keyframes drillAnimationFast {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes drillAnimationSlow {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0); }
+}
+
+.stats-upgrades-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.stats {
+    position: fixed;
+    top: 20px;
+    right: 200px;
+    width: 200px;
+    background-color: #2b2b2b;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    border: 1px solid #ff8f00;
+    font-size: 0.9em;
+    z-index: 10;
+}
+
+.stats p {
+    margin: 5px 0;
+}
+
+.upgrades-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.upgrades-box {
+    flex: 1;
+    background-color: #2b2b2b;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    margin: 0 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    border: 1px solid #ff8f00;
+}
+
+.upgrades h2 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #ffab40;
+    text-align: center;
+}
+
 button {
-    margin: 10px;
-    padding: 12px 24px;
-    font-size: 1em;
+    font-size: 0.9em;
+    padding: 8px 16px;
     border: none;
     cursor: pointer;
     border-radius: 5px;
     transition: background-color 0.3s ease, transform 0.2s, box-shadow 0.2s ease;
-}
-
-button:active {
-    transform: scale(0.98);
+    width: 100%;
+    margin-top: 5px;
 }
 
 .btn-primary {
     background: linear-gradient(145deg, #ff5722, #ff784e);
     color: white;
-    box-shadow: 0px 4px 10px rgba(255, 87, 34, 0.3);
-}
-
-.btn-primary:hover {
-    background: linear-gradient(145deg, #ff784e, #ff5722);
-    box-shadow: 0px 4px 10px rgba(255, 87, 34, 0.3);
 }
 
 .btn-upgrade {
-    background: linear-gradient(145deg, #03a9f4, #35baf6);
-    color: #ffffff;
-    box-shadow: 0px 4px 10px rgba(3, 169, 244, 0.3);
+    background: linear-gradient(145deg, #4e342e, #3e2723);
+    color: white;
+    font-size: 1em;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s, box-shadow 0.2s ease;
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+    border: 1px solid #ff6d00;
 }
 
 .btn-upgrade:hover {
-    background: linear-gradient(145deg, #35baf6, #03a9f4);
-    box-shadow: 0px 6px 14px rgba(3, 169, 244, 0.5);
+    background: linear-gradient(145deg, #6d4c41, #4e342e);
+    box-shadow: 0px 4px 10px rgba(255, 171, 64, 0.5);
 }
 
-.stats, .upgrades {
-    margin-top: 20px;
-    font-size: 1.1em;
-    color: #b0bec5;
+.upgrades, .stats {
+    margin-top: 10px;
 }
 
-
-.stats p, .upgrades p {
-    margin: 5px 0;
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #2b2b2b;
+    padding: 20px;
+    border-radius: 8px;
+    border: 2px solid #ff8f00;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+    z-index: 1000;
 }
 
-#oil-count {
-    font-size: 1.5em;
-    color: #ffab40;
-    text-shadow: 0px 0px 8px rgba(255, 171, 64, 0.8);
+.modal-content {
+    color: white;
+    text-align: center;
+}
+
+.modal button {
+    margin: 10px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#click-upgrades-container, #passive-upgrades-container {
+    max-height: 200px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+#click-upgrades-container::-webkit-scrollbar, #passive-upgrades-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+#click-upgrades-container::-webkit-scrollbar-track, #passive-upgrades-container::-webkit-scrollbar-track {
+    background: #1e1e1e;
+    border-radius: 5px;
+}
+
+#click-upgrades-container::-webkit-scrollbar-thumb, #passive-upgrades-container::-webkit-scrollbar-thumb {
+    background-color: #ff8f00;
+    border-radius: 5px;
+    border: 2px solid #1e1e1e;
+}
+
+#click-upgrades-container::-webkit-scrollbar-thumb:hover, #passive-upgrades-container::-webkit-scrollbar-thumb:hover {
+    background-color: #ffab40;
 }

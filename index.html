@@ -10,16 +10,39 @@
     <div id="game-container">
         <h1>Oil Tycoon</h1>
         <p><span id="oil-count">0</span></p>
-        <button id="oil-button" class="btn-primary">Drill Oil</button>
 
+        <div class="drill-container">
+            <div class="oil-rig">
+                <div class="oil-rig-frame"></div>
+                <div class="drill-pipe"></div>
+                <button id="oil-button" class="btn-primary drill-btn">⛽</button>
+            </div>
+        </div>
+        <div class="upgrades-container">
+            <div class="upgrades-box">
+                <h2>Click Upgrades</h2>
+                <div id="click-upgrades-container"></div>
+            </div>
+            <div class="upgrades-box">
+                <h2>Passive Upgrades</h2>
+                <div id="passive-upgrades-container"></div>
+            </div>
+        </div>
         <div class="stats">
+            <p>Total Oil: <span id="total-oil">0</span></p>
             <p>Oil per Click: <span id="oil-per-click">1</span></p>
             <p>Passive Oil per Second: <span id="oil-per-second">0</span></p>
+            <p>Total Oil Collected: <span id="total-oil-collected">0</span></p>
+            <p>Click Upgrades Owned: <span id="click-upgrades-owned">0</span></p>
+            <p>Passive Upgrades Owned: <span id="passive-upgrades-owned">0</span></p>
+            <button class="btn-reset" onclick="showResetModal()">Reset Data</button>
         </div>
-
-        <div class="upgrades">
-            <button id="click-upgrade" class="btn-upgrade">Upgrade Click Power - Cost: <span id="click-upgrade-cost">10</span> Oil</button>
-            <button id="passive-upgrade" class="btn-upgrade">Buy Passive Income - Cost: <span id="passive-upgrade-cost">50</span> Oil</button>
+        <div id="reset-modal" class="modal">
+            <div class="modal-content">
+                <p>Are you sure you want to reset all data?</p>
+                <button class="btn-primary" onclick="resetGame()">Yes, Reset</button>
+                <button class="btn-secondary" onclick="hideResetModal()">Cancel</button>
+            </div>
         </div>
     </div>
 </body>
