@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Oil Tycoon</title>
+</head>
+<body>
+    <div id="game-container">
+        <h1>Oil Tycoon</h1>
+        <p><span id="oil-count">0</span></p>
+        <button id="oil-button" class="btn-primary">Drill Oil</button>
+
+        <div class="stats">
+            <p>Oil per Click: <span id="oil-per-click">1</span></p>
+            <p>Passive Oil per Second: <span id="oil-per-second">0</span></p>
+        </div>
+
+        <div class="upgrades">
+            <button id="click-upgrade" class="btn-upgrade">Upgrade Click Power - Cost: <span id="click-upgrade-cost">10</span> Oil</button>
+            <button id="passive-upgrade" class="btn-upgrade">Buy Passive Income - Cost: <span id="passive-upgrade-cost">50</span> Oil</button>
+        </div>
+    </div>
+</body>
+<script src="script.js"></script>
+</html>

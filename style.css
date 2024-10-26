@@ -1,0 +1,48 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: "Oswald", sans-serif;
+    background-color: antiquewhite;
+}
+
+#game-container {
+    margin-top: 50px;
+    text-align: center;
+    max-width: 400px;
+    padding: 20px;
+    background-color: rgb(245, 218, 182);
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: #1f73e8;
+    color: white;
+}
+
+.btn-upgrade {
+    background-color: #4caf50;
+    color: white;
+}
+
+.stats {
+    margin-top: 20px;
+}
+
+.desktop-1
+{
+position:absolute;
+background-color:#ffffff;
+height:1024px;
+width:1440px;
+padding:0px;
+}
