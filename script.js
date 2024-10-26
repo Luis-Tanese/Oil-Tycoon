@@ -39,7 +39,7 @@ let lastClickTime = 0;
 document.getElementById("oil-button").addEventListener("click", function() {
     const currentTime = Date.now();
     if (currentTime - lastClickTime < autoclickCheckInterval) {
-        alert("Autoclicking detected! You beast slow down.");
+        alert("Autoclicking detected! You beast, slow down!");
         return;
     }
     lastClickTime = currentTime;
